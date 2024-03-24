@@ -98,9 +98,10 @@ function overlayFrame() {
             const ctx = canvas.getContext('2d');
 
             // Set canvas size to match the user image dimensions
-            canvas.width = userImg.width;
-            canvas.height = userImg.height;
-
+            // canvas.width = userImg.width;
+            // canvas.height = userImg.height;
+            canvas.width = 600;
+            canvas.height = 600;
             // Draw the user image onto the canvas
             ctx.drawImage(userImg, 0, 0, canvas.width, canvas.height);
 
