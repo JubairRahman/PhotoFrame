@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid with Susastho</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Eid with Susastho</h1>
+    </header>
+    <main>
+        <div class="upload-section">
+            <h2>Upload Your Images</h2>
+            <input type="file" id="userImageInput" accept="image/*" class="image-upload">
+            <label for="userImageInput" class="upload-label">Choose User Image</label>
+            <button id="overlayButton" class="overlay-button">Overlay Frame</button>
+        </div>
+        <div class="output-section">
+            <h2>Result</h2>
+            <div id="output" class="output-container"></div>
+            <button id="downloadButton" class="download-button" style="display:none;">Download Image</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
