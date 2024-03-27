@@ -76,7 +76,7 @@ frameImg.onload = function() {
     document.getElementById('overlayButton').addEventListener('click', overlayFrame);
     document.getElementById('downloadButton').addEventListener('click', downloadImage);
 };
-frameImg.src = 'src/PhotoFrame.png'; // Adjust the path according to the location of your frame image
+frameImg.src = 'src/Photo frame1.png'; // Adjust the path according to the location of your frame image
 
 let userImage;
 let dragStartY = 0;
