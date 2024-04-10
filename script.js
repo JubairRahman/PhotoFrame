@@ -308,102 +308,6 @@
 //     downloadLink.click();
 // }
 
-// document.getElementById('overlayButton').addEventListener('click', overlayFrame);
-// document.getElementById('downloadButton').addEventListener('click', downloadImage);
-
-// let userImage;
-// let frameImage;
-
-// function overlayFrame() {
-//     const userImageInput = document.getElementById('userImageInput');
-//     if (userImageInput.files.length === 0) {
-//         alert('Please upload a user image.');
-//         return;
-//     }
-
-//     const userImageFile = userImageInput.files[0];
-
-//     const userImageReader = new FileReader();
-//     userImageReader.onload = function () {
-//         const userImg = new Image();
-//         userImg.onload = function () {
-//             const canvas = document.createElement('canvas');
-//             const ctx = canvas.getContext('2d');
-
-//             // Set canvas size to match user image dimensions
-//             canvas.width = userImg.width;
-//             canvas.height = userImg.height;
-
-//             // Draw the user image onto the canvas
-//             ctx.drawImage(userImg, 0, 0);
-
-//             // Draw the frame image on top
-//             // if (frameImage) {
-//                 const frameImg = new Image();
-//                 frameImg.onload = function () {
-//                     ctx.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
-
-//                     // Display the result
-//                     const output = document.getElementById('output');
-//                     output.innerHTML = '';
-//                     output.appendChild(canvas);ad
-
-//                     // Show download button
-//                     document.getElementById('downloadButton').style.display = 'block';
-//                 };
-//                 frameImg.src = 'src/Photo frame1.png'; // Use the selected frame image
-//                 console.log('can not show');
-                
-//             // } else {
-//             //     // Display the user image only if no frame image is selected
-//             //     const output = document.getElementById('output');
-//             //     output.innerHTML = '';
-//             //     output.appendChild(canvas);
-//             //     console.log("yoo");
-
-//             //     // Show download button
-//             //     document.getElementById('downloadButton').style.display = 'block';
-//             // }
-//         };
-//         userImg.src = userImageReader.result;
-//     };
-
-//     userImageReader.readAsDataURL(userImageFile);
-
-//     userImage = userImageFile;
-// }
-
-// document.getElementById('frameImageInput').addEventListener('change', function (event) {
-//     const frameImageInput = event.target;
-//     if (frameImageInput.files.length === 0) {
-//         return;
-//     }
-
-//     frameImage = URL.createObjectURL(frameImageInput.files[0]);
-// });
-
-// function downloadImage() {
-//     const canvas = document.querySelector('canvas');
-//     const imageDataURL = canvas.toDataURL("src/");
-    
-//     // Store the overlayed image data in local storage
-//     localStorage.setItem('overlayedImage', imageDataURL);
-    
-//     // Optional: You can also display a message to the user indicating that the image has been saved
-//     alert('Overlayed image has been saved to local storage.');
-
-//     // Optional: You can redirect the user or perform any other action
-// }
-// function downloadImage() {
-//         const canvas = document.querySelector('canvas');
-//         const downloadLink = document.createElement('a');
-//         downloadLink.href = canvas.toDataURL("image/png");
-//         downloadLink.download = 'profile_image_with_frame.png';
-//         downloadLink.click();
-//     }
-
-// Download button added
-
 document.getElementById('overlayButton').addEventListener('click', overlayFrame);
 document.getElementById('downloadButton').addEventListener('click', downloadImage);
 
@@ -434,7 +338,7 @@ function overlayFrame() {
             ctx.drawImage(userImg, 0, 0);
 
             // Draw the frame image on top
-            if (frameImage) {
+            // if (frameImage) {
                 const frameImg = new Image();
                 frameImg.onload = function () {
                     ctx.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
@@ -442,21 +346,24 @@ function overlayFrame() {
                     // Display the result
                     const output = document.getElementById('output');
                     output.innerHTML = '';
-                    output.appendChild(canvas);
+                    output.appendChild(canvas);ad
 
                     // Show download button
                     document.getElementById('downloadButton').style.display = 'block';
                 };
-                frameImg.src = frameImage; // Use the selected frame image
-            } else {
-                // Display the user image only if no frame image is selected
-                const output = document.getElementById('output');
-                output.innerHTML = '';
-                output.appendChild(canvas);
+                frameImg.src = 'src/Photo frame1.png'; // Use the selected frame image
+                console.log('can not show');
+                
+            // } else {
+            //     // Display the user image only if no frame image is selected
+            //     const output = document.getElementById('output');
+            //     output.innerHTML = '';
+            //     output.appendChild(canvas);
+            //     console.log("yoo");
 
-                // Show download button
-                document.getElementById('downloadButton').style.display = 'block';
-            }
+            //     // Show download button
+            //     document.getElementById('downloadButton').style.display = 'block';
+            // }
         };
         userImg.src = userImageReader.result;
     };
@@ -477,8 +384,20 @@ document.getElementById('frameImageInput').addEventListener('change', function (
 
 function downloadImage() {
     const canvas = document.querySelector('canvas');
-    const downloadLink = document.createElement('a');
-    downloadLink.href = canvas.toDataURL("image/png");
-    downloadLink.download = 'profile_image_with_frame.png';
-    downloadLink.click();
+    const imageDataURL = canvas.toDataURL("src/");
+    
+    // Store the overlayed image data in local storage
+    localStorage.setItem('overlayedImage', imageDataURL);
+    
+    // Optional: You can also display a message to the user indicating that the image has been saved
+    alert('Overlayed image has been saved to local storage.');
+
+    // Optional: You can redirect the user or perform any other action
 }
+function downloadImage() {
+        const canvas = document.querySelector('canvas');
+        const downloadLink = document.createElement('a');
+        downloadLink.href = canvas.toDataURL("image/png");
+        downloadLink.download = 'profile_image_with_frame.png';
+        downloadLink.click();
+    }
